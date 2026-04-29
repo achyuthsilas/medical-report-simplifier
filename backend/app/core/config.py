@@ -31,7 +31,11 @@ class Settings:
         "http://localhost:5173",   # Vite dev server
         "http://localhost:3000",   # Alternative dev port
         "http://127.0.0.1:5173",
+        # Production Vercel URL (will set the exact one after deploy)
+        # For now, use regex to allow all *.vercel.app subdomains
     ]
+    # Allow any Vercel deployment (preview + production)
+    CORS_ORIGIN_REGEX: str = r"https://.*\.vercel\.app"
 
     # File upload
     UPLOAD_DIR: str = "uploads"
